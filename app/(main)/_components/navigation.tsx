@@ -8,7 +8,7 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./useritem";
@@ -22,6 +22,7 @@ import { Popover, PopoverTrigger ,PopoverContent} from "@/components/ui/popover"
 import TrashBox from "./trash-box";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-setting";
+import { Navbar } from "@/app/(marketing)/_components/navbar";
 
 
 const Navigation = () => {
@@ -32,6 +33,7 @@ const Navigation = () => {
   const isMobile = useMediaQuery("(max-width:768px)");
   const create = useMutation(api.documents.create);
   // const documents=useQuery(api.documents.getSearch);
+  const params=useParams();
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<"aside">>(null);
   const navbarRef = useRef<ElementRef<"div">>(null);
@@ -172,6 +174,12 @@ const Navigation = () => {
           isMobile && "left-0 w-full"
         )}
       >
+        {!!params.documentId ? (
+          <Navbar 
+          iscollapsed={iscollapsed}
+          onResetWidth={resetwidth}
+          />
+        ):(
         <nav className="bg-transparent px-3 py-2 w-full">
           {iscollapsed && (
             <MenuIcon
@@ -181,6 +189,7 @@ const Navigation = () => {
             />
           )}
         </nav>
+        )}
       </div>
     </div>
   );
