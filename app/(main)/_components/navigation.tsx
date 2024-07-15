@@ -38,7 +38,7 @@ const Navigation = () => {
   const sidebarRef = useRef<ElementRef<"aside">>(null);
   const navbarRef = useRef<ElementRef<"div">>(null);
   const [isReseting, setIsReseting] = useState(false);
-  const [iscollapsed, setIscollapsed] = useState(isMobile);
+  const [isCollapsed, setIscollapsed] = useState(isMobile);
 
   useEffect(() => {
     if (isMobile) {
@@ -176,12 +176,12 @@ const Navigation = () => {
       >
         {!!params.documentId ? (
           <Navbar 
-          iscollapsed={iscollapsed}
+          isCollapsed={isCollapsed}
           onResetWidth={resetwidth}
           />
         ):(
         <nav className="bg-transparent px-3 py-2 w-full">
-          {iscollapsed && (
+          {isCollapsed && (
             <MenuIcon
               onClick={resetwidth}
               role="button"
