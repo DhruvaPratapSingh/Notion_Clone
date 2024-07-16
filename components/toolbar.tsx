@@ -110,7 +110,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
 
         {!initialData.coverImage && !preview && (
           <Button
-            className="text-muted-foreground text-xs"
+            className="text-muted-foreground text-xs mt-96"
             variant="outline"
             size="sm"
             onClick={coverImage.onOpen}
