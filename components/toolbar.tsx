@@ -8,11 +8,9 @@ import TextareaAutoSize from "react-textarea-autosize";
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
 import type { Doc } from "@/convex/_generated/dataModel";
-
-import { IconPicker } from "./icon-picker";
 import { useCoverImage } from "@/hooks/use-cover-image";
 
-
+import { IconPicker } from "./icon-picker";
 
 type ToolbarProps = {
   initialData: Doc<"documents">;
@@ -110,7 +108,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
 
         {!initialData.coverImage && !preview && (
           <Button
-            className="text-muted-foreground text-xs mt-96"
+            className="text-muted-foreground text-xs"
             variant="outline"
             size="sm"
             onClick={coverImage.onOpen}
@@ -138,7 +136,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
         >
           {initialData.title}
         </div>
-     )}
+      )}
     </div>
   );
 };

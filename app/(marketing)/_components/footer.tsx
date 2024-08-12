@@ -1,21 +1,20 @@
-"use client"
+import { Button } from "@/components/ui/button";
+import { Logo } from "./logo";
 
-import { Button } from "@/components/ui/button"
-import Logo from "./Logo"
-import { Ghost } from "lucide-react"
-
-export const Footer =()=>{
+export const Footer = () =>{
     return (
-        <div className="flex items-center w-full p-6 bg-background z-50 dark:bg-[#1f1f1f]">
+        <div className="flex items-center w-full p-6 bg-background z-50 dark:bg-[#1F1F1F]">
             <Logo/>
             <div className="md:ml-auto w-full justify-between md:justify-end flex items-center gap-x-2 text-muted-foreground">
                 <Button variant="ghost" size="sm">
-                    Privacy Policy
+                    Privicy Policy
                 </Button>
+            </div>
+            <div className="md:ml-auto w-full justify-between md:justify-end flex items-center gap-x-2 text-muted-foreground">
                 <Button variant="ghost" size="sm">
-                   Terms & conditions
+                    Terms & Conditions
                 </Button>
             </div>
         </div>
-    )
+    );
 }

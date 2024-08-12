@@ -1,23 +1,31 @@
 import type { Metadata } from "next";
+
+import { Toaster } from "sonner";
 import { Inter } from "next/font/google";
+import "./globals.css";
+
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
 import { ModalProvider } from "@/components/providers/modal-provider";
-import { Toaster } from "sonner";
 import { EdgeStoreProvider } from "@/lib/edgestore";
-
-import "./globals.css";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Motion",
-  description: "The connected workspace where better, faster work happens",
-  icons: {
-    icon: [
+  title: "Notes-store",
+  description: "Notes_store appears to be a misspelling of Notion,Notion is a popular productivity and note-taking app designed to help users organize their thoughts, manage projects, and collaborate effectively. It offers a variety of features, including:",
+  icons:{
+    icon:[
       {
-        media: "(prefers-color-scheme:light)",
-        url: "/logo.jpg"
+        media:"(prefers-color-scheme: light)",
+        url:"/logo.svg",
+        href:"/logo.svg"
+      },
+      {
+        media:"(prefers-color-scheme: dark)",
+        // url:"/logo.svg",
+        // href:"/logo.svg"
+        url:"/logo-dark.png",
+        href:"/logo-dark.png"
       }
     ]
   }
@@ -30,24 +38,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/logo.jpg" />
-      </head>
       <body className={inter.className}>
         <ConvexClientProvider>
-          <EdgeStoreProvider>
-        <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-        storageKey="motion-theme-2"
-        >
-          <Toaster position="bottom-center" />
-          <ModalProvider/>
-        {children}
-        </ThemeProvider>
-        </EdgeStoreProvider>
+          <EdgeStoreProvider> 
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+            storageKey="Jotion-theme-2"
+            >
+             <Toaster position="bottom-center"/>
+             <ModalProvider />
+            {children}
+          </ThemeProvider>
+          </EdgeStoreProvider>
         </ConvexClientProvider>
         </body>
     </html>

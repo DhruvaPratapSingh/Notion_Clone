@@ -3,9 +3,7 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { useSettings } from "@/hooks/use-setting";
-
-
+import { useSettings } from "@/hooks/use-settings";
 
 export const SettingsModal = () => {
   const settings = useSettings();
@@ -21,7 +19,7 @@ export const SettingsModal = () => {
           <div className="flex flex-col gap-y-1">
             <Label>Appearance</Label>
             <span className="text-[0.8rem] text-muted-foreground">
-              Customize how Motion looks on your device.
+              Customize how notes-store looks on your device.
             </span>
           </div>
 
